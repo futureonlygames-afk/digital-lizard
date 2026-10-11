@@ -367,10 +367,10 @@
   // Fill these four values once (instructions in README-GISCUS.txt at
   // the site root) and comments appear on every episode page.
   var GISCUS = {
-    repo: "",            // e.g. "yourname/digital-lizard"
-    repoId: "",          // e.g. "R_kgDOAbCdEf"
+    repo: "futureonlygames-afk/digital-lizard",
+    repoId: "R_kgDOVE_x4A",
     category: "Announcements",
-    categoryId: ""       // e.g. "DIC_kwDOAbCdEf"
+    categoryId: "DIC_kwDOVE_x4M4DHkf8"
   };
   (function loadGiscus() {
     var box = document.querySelector(".giscus");
