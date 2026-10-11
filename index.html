@@ -143,7 +143,7 @@ body.idle .r-top,body.idle .r-foot{opacity:0;pointer-events:none}
 .mnav.open{display:flex}
 .mnav a{padding:10px 0;color:var(--ink);font-weight:600;border-top:1px solid #e5eae6}
 </style>
-<link rel="stylesheet" href="assets/site.css?v=4">
+<link rel="stylesheet" href="assets/site.css?v=5">
 <noscript><style>.rv{opacity:1!important;translate:none!important}</style></noscript>
 <meta name="description" content="Digital Lizard teaches IPTV in plain language: a 30-episode Understanding IPTV season and a 10-episode IPTV Rescue Guide, with day-by-day lessons, progress points and ranks.">
 <meta name="theme-color" content="#0d3b2d">
@@ -222,7 +222,12 @@ body.idle .r-top,body.idle .r-foot{opacity:0;pointer-events:none}
 <span class="sec-no rv">04</span>
 <h2 class="rv">Level Up Your Setup</h2>
 <p>One short email per new episode. No spam, unsubscribe anytime.</p>
-<script async data-uid="3c7eee30a8" src="https://digital-journey-with-michelle.kit.com/3c7eee30a8/index.js"></script>
+<form class="news-form" id="news-form">
+<input type="email" id="news-email" name="email_address" placeholder="Email Address" autocomplete="email" required aria-label="Email address">
+<button type="submit" id="news-btn">Subscribe</button>
+</form>
+<p class="news-ok" id="news-ok" hidden>You've been subscribed to Digital Lizard, you Digi Savvy!!<small>Now check your email inbox and click the confirmation link — that's what makes it official.</small></p>
+<p class="news-err" id="news-err" hidden>That email doesn't look right — mind checking it?</p>
 </section>
 </main>
 </div>
@@ -236,6 +241,6 @@ body.idle .r-top,body.idle .r-foot{opacity:0;pointer-events:none}
 <button class="modal-x" data-close-policy aria-label="Close">✕</button>
 <h3 id="policy-modal-title"></h3><p id="policy-modal-text"></p>
 </div></div>
-<script src="assets/app.js?v=4"></script>
+<script src="assets/app.js?v=5"></script>
 </body>
 </html>

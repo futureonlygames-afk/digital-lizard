@@ -354,6 +354,45 @@
       }
     }
   }
+  // ── Newsletter subscribe (native form, stays on the page) ──────────
+  (function () {
+    var form = document.getElementById("news-form");
+    if (!form) return;
+    var email = document.getElementById("news-email");
+    var btn = document.getElementById("news-btn");
+    var ENDPOINT = "https://app.kit.com/forms/10017233/subscriptions";
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var ok = document.getElementById("news-ok");
+      var err = document.getElementById("news-err");
+      err.hidden = true;
+      var v = (email.value || "").trim();
+      if (!v || v.indexOf("@") < 1 || v.indexOf(".") < v.indexOf("@")) {
+        err.hidden = false;
+        email.focus();
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = "Subscribing…";
+      var body = "email_address=" + encodeURIComponent(v);
+      fetch(ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body,
+        redirect: "manual"
+      }).then(function () {
+        form.hidden = true;
+        ok.hidden = false;
+        ok.scrollIntoView({ behavior: "smooth", block: "center" });
+      }).catch(function () {
+        // network problem: fall back to a classic form POST so the signup still lands
+        form.action = ENDPOINT;
+        form.method = "post";
+        form.submit();
+      });
+    });
+  })();
+
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
 })();
