@@ -229,21 +229,12 @@
         if (href) location.href = href;
       });
     }
-    // reader theme (Light/Dark) + Giscus theme sync
+    // reader theme (Light/Dark)
     var themeBtn = document.getElementById("theme-btn");
-    function syncGiscus(mode) {
-      var f = document.querySelector(".giscus iframe");
-      if (f) {
-        try {
-          f.contentWindow.postMessage({ giscus: { setConfig: { theme: mode === "dark" ? "dark" : "light" } } }, "https://giscus.app");
-        } catch (e) {}
-      }
-    }
     function setTheme(mode) {
       document.body.dataset.rtheme = mode;
       try { localStorage.setItem("ds-rtheme", mode); } catch (e) {}
       if (themeBtn) themeBtn.textContent = mode === "dark" ? "Dark" : "Light";
-      syncGiscus(mode);
     }
     var savedTheme = "light";
     try { savedTheme = localStorage.getItem("ds-rtheme") || "light"; } catch (e) {}
@@ -363,41 +354,6 @@
       }
     }
   }
-  // ── Giscus comments (episode pages) ───────────────────────────────
-  // Fill these four values once (instructions in README-GISCUS.txt at
-  // the site root) and comments appear on every episode page.
-  var GISCUS = {
-    repo: "futureonlygames-afk/digital-lizard",
-    repoId: "R_kgDOVE_x4A",
-    category: "Announcements",
-    categoryId: "DIC_kwDOVE_x4M4DHkf8"
-  };
-  (function loadGiscus() {
-    var box = document.querySelector(".giscus");
-    if (!box || !GISCUS.repo || !GISCUS.repoId || !GISCUS.categoryId) return;
-    var theme = "light";
-    try { theme = localStorage.getItem("ds-rtheme") === "dark" ? "dark" : "light"; } catch (e) {}
-    var s = document.createElement("script");
-    s.src = "https://giscus.app/client.js";
-    s.async = true;
-    s.crossOrigin = "anonymous";
-    var attrs = {
-      "data-repo": GISCUS.repo,
-      "data-repo-id": GISCUS.repoId,
-      "data-category": GISCUS.category,
-      "data-category-id": GISCUS.categoryId,
-      "data-mapping": "pathname",
-      "data-strict": "0",
-      "data-reactions-enabled": "1",
-      "data-emit-metadata": "0",
-      "data-input-position": "top",
-      "data-theme": theme,
-      "data-lang": "en"
-    };
-    Object.keys(attrs).forEach(function (k) { s.setAttribute(k, attrs[k]); });
-    box.appendChild(s);
-  })();
-
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
 })();

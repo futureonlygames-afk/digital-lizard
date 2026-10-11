@@ -192,7 +192,6 @@ header::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;
 .season-circle[data-season="s2"]{animation-delay:.14s}
 @keyframes pop{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
 @media (prefers-reduced-motion:reduce){.season-circle{animation:none}}
-.giscus{max-width:65ch;margin:26px auto 0}
 .vgallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin-top:26px}
 .vcard{background:#fff;border:1px solid #e2e7e3;border-radius:16px;overflow:hidden}
 .vcard video{width:100%;max-height:300px;background:#000;display:block}
