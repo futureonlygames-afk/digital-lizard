@@ -1,0 +1,8 @@
+# Security headers for Netlify and Cloudflare Pages (both read this file).
+# tighten further only after testing the Kit form + fonts load correctly.
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://digital-journey-with-michelle.kit.com https://*.kit.com https://giscus.app; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://avatars.githubusercontent.com; form-action 'self' https://*.kit.com; connect-src 'self' https://*.kit.com https://giscus.app; frame-src https://giscus.app; frame-ancestors 'self'; base-uri 'self'; upgrade-insecure-requests
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  X-Frame-Options: SAMEORIGIN
